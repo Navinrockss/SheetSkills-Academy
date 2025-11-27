@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SheetSkills Academy – Excel & Dashboard Training</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Simple Excel and data analytics learning for office work, dashboards, MIS, and job seekers. Take a quick level check and choose the right Excel course."
+  />
+
+  <style>
+    :root {
+      /* Light corporate theme */
+      --bg: #ffffff;
+      --bg-soft: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: #e5e7eb;
+      --text-main: #111827;
+      --text-soft: #6b7280;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.08);
+      --danger: #ef4444;
+      --shadow-soft: rgba(15, 23, 42, 0.04);
+      --shadow-strong: rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      background: #ffffffee;
+      border-bottom: 1px solid #e5e7eb;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 0.7rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      color: #0f172a;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    nav a:hover {
+      background: #f1f5f9;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon-wrap {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .logo-sub {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 2rem 0 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3.8vw, 2.4rem);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.65rem 1.2rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: 0.14s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #f9fafb;
+      box-shadow: 0 6px 18px rgba(34, 197, 94, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(34, 197, 94, 0.55);
+      opacity: 0.96;
+    }
+
+    .btn-ghost {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background: #f1f5f9;
+    }
+
+    .hero-note {
+      margin-top: 0.6rem;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .hero-img {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 30px var(--shadow-soft);
+    }
+
+    .hero-img svg {
+      width: 100%;
+      display: block;
+    }
+
+    /* Sections */
+    section {
+      padding: 1.4rem 0;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin-bottom: 0.9rem;
+    }
+
+    .muted {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    /* Why cards */
+    .three-cols {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      padding: 0.9rem;
+      box-shadow: 0 5px 18px var(--shadow-soft);
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Search */
+    .search-bar {
+      margin-top: 0.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .search-bar input {
+      flex: 1 1 240px;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 0.92rem;
+    }
+
+    .search-bar input:focus {
+      outline: 2px solid var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Ad slot */
+    .ad-slot {
+      margin-top: 1rem;
+      border-radius: 12px;
+      border: 1px dashed #cbd5f5;
+      padding: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      background: #f8fafc;
+      text-align: center;
+      box-shadow: 0 4px 14px var(--shadow-soft);
+    }
+
+    /* Assessment */
+    .assessment {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      padding: 1rem;
+      box-shadow: 0 6px 22px var(--shadow-strong);
+      font-size: 0.9rem;
+    }
+
+    .question {
+      margin-top: 0.8rem;
+      padding: 0.75rem;
+      background: var(--bg-soft);
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .question-title {
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    .question-options label {
+      display: block;
+      margin: 0.15rem 0;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      cursor: pointer;
+    }
+
+    .question-options input[type="radio"] {
+      margin-right: 0.35rem;
+      accent-color: var(--accent);
+    }
+
+    .assessment-visual {
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      padding: 0.5rem;
+      margin-bottom: 0.4rem;
+      box-shadow: 0 3px 12px var(--shadow-soft);
+    }
+
+    .assessment-visual svg {
+      width: 100%;
+      max-width: 240px;
+      display: block;
+    }
+
+    .assessment-visual-table {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .assessment-visual-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .assessment-visual-table th,
+    .assessment-visual-table td {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 3px 4px;
+      text-align: left;
+    }
+
+    .assessment-visual-table th {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .result-box {
+      margin-top: 0.7rem;
+      padding: 0.75rem;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      display: none;
+    }
+
+    .result-box.success {
+      background: #ecfdf3;
+      color: #166534;
+      border: 1px solid #22c55e;
+    }
+
+    .result-box.warning {
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    /* Courses */
+    .locked-note {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .course-grid {
+      margin-top: 0.7rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      font-size: 0.88rem;
+    }
+
+    .course-card {
+      position: relative;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 0.8rem;
+      box-shadow: 0 6px 18px var(--shadow-soft);
+    }
+
+    .course-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 0.2rem;
+    }
+
+    .course-level-label {
+      font-size: 0.75rem;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      display: inline-block;
+      margin-bottom: 0.3rem;
+    }
+
+    .course-card h3 {
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .course-card ul {
+      padding-left: 1rem;
+      margin: 0.3rem 0 0.4rem;
+    }
+
+    .course-card li {
+      margin-bottom: 0.18rem;
+      color: var(--text-soft);
+      font-size: 0.86rem;
+    }
+
+    .course-locked {
+      opacity: 0.7;
+    }
+
+    .course-locked::after {
+      content: "Complete the assessment to unlock.";
+      position: absolute;
+      inset: auto 10px 8px 10px;
+      background: rgba(249, 250, 251, 0.95);
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      padding: 0.25rem 0.4rem;
+      font-size: 0.75rem;
+      text-align: center;
+      color: var(--text-soft);
+    }
+
+    .course-badge-recommended {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      font-size: 0.72rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #22c55e;
+    }
+
+    .course-card .btn {
+      font-size: 0.8rem;
+      padding: 0.45rem 0.9rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.6rem;
+      font-size: 0.88rem;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 0.8rem;
+      box-shadow: 0 6px 18px var(--shadow-soft);
+    }
+
+    .faq-item h3 {
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.4rem 0 1.8rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 1.2rem;
+      background: #f9fafb;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .footer-links a:hover {
+      color: #111827;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      nav ul {
+        display: none;
+      }
+      .three-cols {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .course-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-icon-wrap" aria-hidden="true">
+          <!-- Simple light dashboard icon -->
+          <svg viewBox="0 0 64 64">
+            <rect x="4" y="8" width="56" height="48" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+            <rect x="10" y="14" width="44" height="10" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+            <circle cx="18" cy="19" r="2.2" fill="#22c55e"/>
+            <circle cx="26" cy="19" r="2.2" fill="#facc15"/>
+            <circle cx="34" cy="19" r="2.2" fill="#ef4444"/>
+            <rect x="14" y="30" width="8" height="16" rx="2" fill="#22c55e"/>
+            <rect x="26" y="26" width="8" height="20" rx="2" fill="#22c55e"/>
+            <rect x="38" y="32" width="8" height="14" rx="2" fill="#22c55e"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-weight:600;">SheetSkills Academy</div>
+          <div class="logo-sub">Excel · Data · Dashboards in simple language</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#assessment">Assessment</a></li>
+          <li><a href="#courses" id="coursesNav">Courses</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="container">
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <h1>Simple Excel learning for real office work.</h1>
+          <p>
+            Learn Excel from basics to dashboards in clear, easy English.  
+            Short lessons, real examples. Perfect for office staff, MIS roles and job seekers.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="scrollToSection('assessment')">Start level check →</button>
+            <button class="btn btn-ghost" onclick="scrollToSection('courses')">View course levels</button>
+          </div>
+          <p class="hero-note">
+            No heavy theory. Focus on real tasks: sales reports, HR data, payments, targets, dashboards.
+          </p>
+        </div>
+
+        <div class="hero-img">
+          <!-- LIGHT THEME DASHBOARD SVG -->
+          <svg viewBox="0 0 260 160">
+            <rect x="4" y="6" width="252" height="148" rx="14" fill="#ffffff" stroke="#d1d5db" stroke-width="2"/>
+            <rect x="14" y="16" width="232" height="20" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+            <circle cx="26" cy="26" r="4" fill="#22c55e"/>
+            <circle cx="40" cy="26" r="4" fill="#facc15"/>
+            <circle cx="54" cy="26" r="4" fill="#ef4444"/>
+
+            <rect x="18" y="48" width="100" height="80" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+            <rect x="24" y="112" width="10" height="12" rx="3" fill="#22c55e"/>
+            <rect x="38" y="104" width="10" height="20" rx="3" fill="#22c55e"/>
+            <rect x="52" y="94" width="10" height="30" rx="3" fill="#22c55e"/>
+            <rect x="66" y="76" width="10" height="48" rx="3" fill="#22c55e"/>
+
+            <rect x="130" y="48" width="106" height="36" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+            <path d="M138 76 L148 64 L160 72 L176 54 L192 66 L208 50" fill="none" stroke="#22c55e" stroke-width="2"/>
+
+            <rect x="130" y="92" width="106" height="36" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+            <rect x="138" y="102" width="40" height="8" rx="4" fill="#e5e7eb"/>
+            <rect x="182" y="102" width="40" height="8" rx="4" fill="#e5e7eb"/>
+          </svg>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section>
+        <h2 class="section-title">Why SheetSkills Academy?</h2>
+        <p class="section-subtitle">
+          Built for working people and job seekers who want clear, simple and practical Excel learning.
+        </p>
+
+        <div class="three-cols">
+          <div class="card">
+            <h3>Simple English</h3>
+            <p class="muted">
+              We use easy words and step-by-step actions. Good for beginners and people not confident in English.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Real-life files</h3>
+            <p class="muted">
+              Learn using sales, HR, accounts and MIS-style data – the type of work done in actual jobs.
+            </p>
+          </div>
+          <div class="card">
+            <h3>No boring classes</h3>
+            <p class="muted">
+              Short lessons with tasks to complete. You keep doing something, not just watching long videos.
+            </p>
+          </div>
+        </div>
+
+        <!-- AdSense placeholder -->
+        <div class="ad-slot">
+          Home page ad area (for Google AdSense).
+          <!-- TODO: Paste your AdSense code here -->
+        </div>
+      </section>
+
+      <!-- SEARCH -->
+      <section>
+        <h2 class="section-title">Search any topic</h2>
+        <p class="section-subtitle">Type a word and we’ll filter matching courses and FAQs.</p>
+        <div class="search-bar">
+          <input id="searchInput" placeholder="Example: VLOOKUP, dashboard, pivot, Power Query, attendance" oninput="handleSearch(event)" />
+          <span class="muted" id="searchHint">Showing all courses and FAQ.</span>
+        </div>
+      </section>
+
+      <!-- ASSESSMENT -->
+      <section id="assessment">
+        <h2 class="section-title">Excel level check – 10 quick questions</h2>
+        <p class="section-subtitle">
+          Mix of “how would you do this?” and small visuals. Answer based on how you actually work in Excel today.
+        </p>
+
+        <div class="assessment">
+          <form id="assessmentForm">
+            <!-- Q1 -->
+            <div class="question">
+              <div class="question-title">
+                1. Your manager says: “Please total this month’s sales for each branch.”
+              </div>
+              <div class="muted" style="font-size:0.85rem;margin-bottom:0.2rem;">
+                What is closest to how you would do it?
+              </div>
+              <div class="question-options">
+                <label><input type="radio" name="q1" value="0" /> Add numbers manually using calculator or typing one by one.</label>
+                <label><input type="radio" name="q1" value="1" /> Use basic formulas like <code>=SUM()</code>, sometimes with help.</label>
+                <label><input type="radio" name="q1" value="2" /> Use proper ranges and formulas to build a small summary table.</label>
+              </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question">
+              <div class="question-title">
+                2. You have a list of customers and amounts. Boss says: “Show only top 10 customers.”
+              </div>
+              <div class="question-options">
+                <label><input type="radio" name="q2" value="0" /> Try to guess top 10 by looking and writing manually.</label>
+                <label><input type="radio" name="q2" value="1" /> Sort the column and then manually pick the top 10 rows.</label>
+                <label><input type="radio" name="q2" value="2" /> Sort, filter and/or use a Pivot Table to get top 10 properly.</label>
+              </div>
+            </div>
+
+            <!-- Q3 visual chart -->
+            <div class="question">
+              <div class="question-title">
+                3. See this simple chart. It shows sales for Q1–Q4.
+              </div>
+              <div class="assessment-visual">
+                <svg viewBox="0 0 220 80">
+                  <rect x="10" y="10" width="200" height="60" rx="8" fill="#ffffff" stroke="#e5e7eb"/>
+                  <rect x="26" y="42" width="18" height="23" rx="3" fill="#22c55e"/>
+                  <rect x="74" y="34" width="18" height="31" rx="3" fill="#22c55e"/>
+                  <rect x="122" y="28" width="18" height="37" rx="3" fill="#22c55e"/>
+                  <rect x="170" y="36" width="18" height="29" rx="3" fill="#22c55e"/>
+                  <text x="26" y="75" font-size="7" fill="#6b7280">Q1</text>
+                  <text x="74" y="75" font-size="7" fill="#6b7280">Q2</text>
+                  <text x="122" y="75" font-size="7" fill="#6b7280">Q3</text>
+                  <text x="170" y="75" font-size="7" fill="#6b7280">Q4</text>
+                </svg>
+              </div>
+              <div class="muted" style="font-size:0.85rem;margin-bottom:0.2rem;">
+                What best matches your chart skills?
+              </div>
+              <div class="question-options">
+                <label><input type="radio" name="q3" value="0" /> I don’t really know how to create a chart like this in Excel.</label>
+                <label><input type="radio" name="q3" value="1" /> I can create such a chart but not format it very well.</label>
+                <label><input type="radio" name="q3" value="2" /> I can create and format charts clearly and change them if manager asks.</label>
+              </div>
+            </div>
+
+            <!-- Q4 lookup -->
+            <div class="question">
+              <div class="question-title">
+                4. You have a price list and an order list. You need to pull prices into the order sheet.
+              </div>
+              <div class="question-options">
+                <label><input type="radio" name="q4" value="0" /> Copy-paste prices manually from one sheet to another.</label>
+                <label><input type="radio" name="q4" value="1" /> Try to use <code>VLOOKUP</code> but often need help.</label>
+                <label><input type="radio" name="q4" value="2" /> Comfortably use <code>VLOOKUP</code>, <code>XLOOKUP</code> or similar formulas.</label>
+              </div>
+            </div>
+
+            <!-- Q5 attendance table visual -->
+            <div class="question">
+              <div class="question-title">
+                5. See this attendance table:
+              </div>
+              <div class="assessment-visual assessment-visual-table">
+                <table>
+                  <tr><th>Employee</th><th>Days Present</th><th>Late (Yes/No)</th></tr>
+                  <tr><td>Asha</td><td>26</td><td>No</td></tr>
+                  <tr><td>Rahul</td><td>22</td><td>Yes</td></tr>
+                  <tr><td>Meena</td><td>24</td><td>No</td></tr>
+                </table>
+              </div>
+              <div class="muted" style="font-size:0.85rem;margin-bottom:0.2rem;">
+                HR asks: “Mark ‘Good Attendance’ for people with 24+ days and No in Late.” How would you do this?
+              </div>
+              <div class="question-options">
+                <label><input type="radio" name="q5" value="0" /> Check each row manually and type Good/Not Good.</label>
+                <label><input type="radio" name="q5" value="1" /> Try a simple <code>=IF()</code> with help if needed.</label>
+                <label><input type="radio" name="q5" value="2" /> Write an IF formula with AND conditions to mark Good Attendance automatically.</label>
+              </div>
+            </div>
+
+            <!-- Q6 pivot -->
+            <div class="question">
+              <div class="question-title">
+                6. You receive 5,000 rows of sales data. Boss says: “Show total by region and product.”
+              </div>
+              <div class="question-options">
+                <label><input type="radio" name="q6" value="0" /> Feel lost / try to filter and add values manually.</label>
+                <label><input type="radio" name="q6" value="1" /> Use Pivot Table in a basic way but still learning.</label>
+                <label><input type="radio" name="q6" value="2" /> Quickly build and adjust a Pivot Table for this summary.</label>
+              </div>
+            </div>
+
+            <!-- Q7 cleaning -->
+            <div class="question">
+              <div class="question-title">
+                7. Your data has duplicates, extra spaces and inconsistent text (like “ north ” / “North”).
+              </div>
+              <div class="question-options">
+                <label><input type="radio" name="q7" value="0" /> Fix each row manually.</label>
+                <label><input type="radio" name="q7" value="1" /> Use Remove Duplicates and some basic text formulas.</label>
+                <label><input type="radio" name="q7" value="2" /> Use Remove Duplicates, text formulas and, if needed, tools like Power Query.</label>
+              </div>
+            </div>
+
+            <!-- Q8 dashboard -->
+            <div class="question">
+              <div class="question-title">
+                8. Manager wants a one-page view: total sales, top product, 1–2 charts.
+              </div>
+              <div class="question-options">
+                <label><input type="radio" name="q8" value="0" /> Send numbers and charts in separate sheets.</label>
+                <label><input type="radio" name="q8" value="1" /> Put some numbers and charts together on a sheet, but not fully planned.</label>
+                <label><input type="radio" name="q8" value="2" /> Design a simple dashboard sheet with key numbers and charts clearly arranged.</label>
+              </div>
+            </div>
+
+            <!-- Q9 repeat data combining -->
+            <div class="question">
+              <div class="question-title">
+                9. Every month you get 3 similar Excel files (Jan, Feb, Mar). You must combine them.
+              </div>
+              <div class="question-options">
+                <label><input type="radio" name="q9" value="0" /> Copy-paste each file into one big sheet every month.</label>
+                <label><input type="radio" name="q9" value="1" /> Use some formulas but still end up copy-pasting often.</label>
+                <label><input type="radio" name="q9" value="2" /> Use a fixed method (like Power Query) so next month you just refresh.</label>
+              </div>
+            </div>
+
+            <!-- Q10 data model -->
+            <div class="question">
+              <div class="question-title">
+                10. You have Customers, Products and Sales as separate tables. You want one report using all three.
+              </div>
+              <div class="question-options">
+                <label><input type="radio" name="q10" value="0" /> Try to keep everything in one sheet; multiple tables confuse me.</label>
+                <label><input type="radio" name="q10" value="1" /> Use lookups between tables, but it becomes complex.</label>
+                <label><input type="radio" name="q10" value="2" /> Understand or am ready to learn Data Model/relationships for such reports.</label>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" style="margin-top:0.5rem;" onclick="calculateAssessment()">
+              Show my level & unlock course →
+            </button>
+
+            <div id="assessmentResult" class="result-box"></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- COURSES -->
+      <section id="courses">
+        <h2 class="section-title">Course levels – from basics to dashboards</h2>
+        <p class="section-subtitle">
+          After you complete the level check, we unlock all levels and highlight one as recommended.
+        </p>
+
+        <p class="locked-note" id="coursesLockText">
+          Courses are locked now. Please complete the assessment above to unlock.
+        </p>
+
+        <div class="course-grid">
+          <!-- Level 1 -->
+          <article class="course-card course-locked" data-level="1" data-topics="basics,beginner,foundation,zero">
+            <div class="course-tag">Level 1</div>
+            <span class="course-level-label">Excel basics</span>
+            <h3>Start from Zero</h3>
+            <p class="muted">For complete beginners or people scared of Excel.</p>
+            <ul>
+              <li>Open, save, move around in Excel</li>
+              <li>First formulas: SUM, AVERAGE</li>
+              <li>Simple formatting and one basic chart</li>
+            </ul>
+            <button class="btn btn-primary hidden" data-course-btn="1">Go to Level 1</button>
+          </article>
+
+          <!-- Level 2 -->
+          <article class="course-card course-locked" data-level="2" data-topics="daily,office,cleaning,sort,filter">
+            <div class="course-tag">Level 2</div>
+            <span class="course-level-label">Daily office Excel</span>
+            <h3>Everyday Reporting</h3>
+            <p class="muted">For office staff and support roles.</p>
+            <ul>
+              <li>Sort and filter for quick answers</li>
+              <li>Clean simple messy data</li>
+              <li>Better charts for small reports</li>
+            </ul>
+            <button class="btn btn-primary hidden" data-course-btn="2">Go to Level 2</button>
+          </article>
+
+          <!-- Level 3 -->
+          <article class="course-card course-locked" data-level="3" data-topics="lookup,vlookup,xlookup,MIS">
+            <div class="course-tag">Level 3</div>
+            <span class="course-level-label">Smart Excel</span>
+            <h3>Business Data User</h3>
+            <p class="muted">For MIS/operations/sales reporting.</p>
+            <ul>
+              <li>VLOOKUP / XLOOKUP basics</li>
+              <li>Dropdowns and clean entry templates</li>
+              <li>Better charts and summaries</li>
+            </ul>
+            <button class="btn btn-primary hidden" data-course-btn="3">Go to Level 3</button>
+          </article>
+
+          <!-- Level 4 -->
+          <article class="course-card course-locked" data-level="4" data-topics="pivot,dashboard,KPI,manager">
+            <div class="course-tag">Level 4</div>
+            <span class="course-level-label">Dashboards</span>
+            <h3>Reports for Managers</h3>
+            <p class="muted">For people who present numbers.</p>
+            <ul>
+              <li>Pivot Tables for summaries</li>
+              <li>Simple dashboard page with KPIs</li>
+              <li>Clear charts and layout</li>
+            </ul>
+            <button class="btn btn-primary hidden" data-course-btn="4">Go to Level 4</button>
+          </article>
+
+          <!-- Level 5 -->
+          <article class="course-card course-locked" data-level="5" data-topics="power query,power pivot,automation,data model,advanced">
+            <div class="course-tag">Level 5</div>
+            <span class="course-level-label">Advanced analytics</span>
+            <h3>Power User Path</h3>
+            <p class="muted">For future MIS/data analysts.</p>
+            <ul>
+              <li>Power Query basics</li>
+              <li>Simple Data Model idea</li>
+              <li>Mini project from raw files to dashboard</li>
+            </ul>
+            <button class="btn btn-primary hidden" data-course-btn="5">Go to Level 5</button>
+          </article>
+        </div>
+
+        <!-- Course area AdSense -->
+        <div class="ad-slot">
+          Course page ad area (for Google AdSense).
+          <!-- TODO: Paste another AdSense code block here -->
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <h2 class="section-title">Common questions</h2>
+        <p class="section-subtitle">
+          Simple answers to common doubts.
+        </p>
+
+        <div class="faq-grid">
+          <div class="faq-item" data-topics="free,assessment,level">
+            <h3>Is the level check free?</h3>
+            <p class="muted">
+              Yes. The assessment is free. It only helps us know your current level so we can suggest the right starting course.
+            </p>
+          </div>
+          <div class="faq-item" data-topics="english,language,beginners">
+            <h3>My English is not strong. Can I still learn?</h3>
+            <p class="muted">
+              Yes. We use simple English and clear steps. You learn by doing, not by reading heavy theory.
+            </p>
+          </div>
+          <div class="faq-item" data-topics="time,working,busy,short lessons">
+            <h3>I am working full-time. Is this practical?</h3>
+            <p class="muted">
+              Lessons are short. Even 30 minutes a day is enough to move forward without feeling overloaded.
+            </p>
+          </div>
+          <div class="faq-item" data-topics="job,jobs,career,MIS">
+            <h3>Is this useful for job and career growth?</h3>
+            <p class="muted">
+              Yes. You learn the type of Excel and dashboards used in roles like MIS Executive, back office, support, and junior analyst.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> SheetSkills Academy. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#assessment">Take assessment</a>
+        <a href="#courses">View courses</a>
+      </div>
+      <div style="margin-top:0.5rem;">
+        “Microsoft Excel” is a trademark of Microsoft Corporation. SheetSkills Academy is an independent learning website.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function calculateAssessment() {
+      const form = document.getElementById("assessmentForm");
+      const resultBox = document.getElementById("assessmentResult");
+      const totalQuestions = 10;
+      let answered = 0;
+      let score = 0;
+
+      for (let i = 1; i <= totalQuestions; i++) {
+        const radios = form.querySelectorAll('input[name="q' + i + '"]');
+        radios.forEach(r => {
+          if (r.checked) {
+            answered++;
+            score += Number(r.value);
+          }
+        });
+      }
+
+      if (answered < totalQuestions) {
+        resultBox.className = "result-box warning";
+        resultBox.style.display = "block";
+        resultBox.innerHTML = "Please answer all 10 questions so we can estimate your level correctly.";
+        return;
+      }
+
+      let level;
+      if (score <= 4) level = 1;
+      else if (score <= 8) level = 2;
+      else if (score <= 12) level = 3;
+      else if (score <= 16) level = 4;
+      else level = 5;
+
+      const levelNames = {
+        1: "Level 1 – Start from Zero",
+        2: "Level 2 – Everyday Reporting",
+        3: "Level 3 – Business Data User",
+        4: "Level 4 – Reports for Managers",
+        5: "Level 5 – Power User Path"
+      };
+
+      resultBox.className = "result-box success";
+      resultBox.style.display = "block";
+      resultBox.innerHTML =
+        "Your estimated level is <strong>" + levelNames[level] + "</strong> (Score: " +
+        score + " out of 20).<br/>We have unlocked all courses and marked one as recommended.";
+
+      unlockCourses(level);
+    }
+
+    function unlockCourses(recommendedLevel) {
+      const cards = document.querySelectorAll(".course-card");
+      const lockText = document.getElementById("coursesLockText");
+      const coursesNav = document.getElementById("coursesNav");
+
+      lockText.textContent = "Courses unlocked. Your recommended level is highlighted.";
+      coursesNav.textContent = "Courses (unlocked)";
+
+      cards.forEach(card => {
+        card.classList.remove("course-locked");
+        const level = Number(card.dataset.level);
+        const btn = card.querySelector('[data-course-btn="' + level + '"]');
+        if (btn) btn.classList.remove("hidden");
+
+        const oldBadge = card.querySelector(".course-badge-recommended");
+        if (oldBadge) oldBadge.remove();
+
+        if (level === recommendedLevel) {
+          const badge = document.createElement("div");
+          badge.className = "course-badge-recommended";
+          badge.textContent = "Recommended";
+          card.appendChild(badge);
+        }
+      });
+    }
+
+    function handleSearch(event) {
+      const term = event.target.value.trim().toLowerCase();
+      const hint = document.getElementById("searchHint");
+      const courseCards = document.querySelectorAll(".course-card");
+      const faqItems = document.querySelectorAll(".faq-item");
+
+      if (!term) {
+        hint.textContent = "Showing all courses and FAQ.";
+        courseCards.forEach(c => c.style.display = "");
+        faqItems.forEach(f => f.style.display = "");
+        return;
+      }
+
+      hint.textContent = 'Filtering by: "' + term + '"';
+
+      courseCards.forEach(card => {
+        const topics = (card.dataset.topics || "").toLowerCase();
+        const text = card.textContent.toLowerCase();
+        card.style.display = (topics.includes(term) || text.includes(term)) ? "" : "none";
+      });
+
+      faqItems.forEach(item => {
+        const topics = (item.dataset.topics || "").toLowerCase();
+        const text = item.textContent.toLowerCase();
+        item.style.display = (topics.includes(term) || text.includes(term)) ? "" : "none";
+      });
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

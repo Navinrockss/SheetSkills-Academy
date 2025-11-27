@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Level 4 – Reports for Managers | SheetSkills Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Level 4 Excel course: dashboards and management reports with pivots and charts." />
+  <style>
+    /* Same base styles */
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: #e5e7eb;
+      --text-main: #111827;
+      --text-soft: #6b7280;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.08);
+      --shadow-soft: rgba(15, 23, 42, 0.04);
+      --shadow-strong: rgba(15, 23, 42, 0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      background: #ffffffee;
+      border-bottom: 1px solid #e5e7eb;
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 0.7rem 1rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    nav ul { list-style: none; display: flex; gap: 0.7rem; font-size: 0.9rem; }
+    nav a {
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      transition: 0.15s;
+    }
+    nav a:hover { background: #f1f5f9; }
+    .logo { display: flex; align-items: center; gap: 0.5rem; }
+    .logo-sub { font-size: 0.75rem; color: var(--text-soft); }
+
+    main { padding: 1.5rem 0 1.7rem; }
+    .page-title { font-size: 1.6rem; margin-bottom: 0.3rem; }
+    .badge-level {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background: #ecfdf3;
+      color: #166534;
+      border: 1px solid #22c55e;
+      margin-bottom: 0.5rem;
+    }
+    .muted { color: var(--text-soft); font-size: 0.92rem; }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      padding: 0.9rem;
+      box-shadow: 0 5px 16px var(--shadow-soft);
+      margin-top: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .path-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .path-tab {
+      flex: 0 0 auto;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      font-size: 0.88rem;
+      cursor: pointer;
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .path-tab span {
+      font-size: 0.75rem;
+      padding: 0.05rem 0.5rem;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+    }
+    .path-tab.active {
+      background: var(--accent);
+      color: #f9fafb;
+      border-color: var(--accent);
+    }
+    .path-tab.active span {
+      background: #bbf7d0;
+      color: #14532d;
+    }
+    .path-note { font-size: 0.82rem; color: var(--text-soft); }
+
+    .path-panel { display: none; margin-top: 0.6rem; }
+    .path-panel.active { display: block; }
+
+    .module-list { margin-top: 0.4rem; }
+    .module-list h3 { font-size: 1rem; margin-bottom: 0.2rem; }
+    .module-list ul { padding-left: 1.1rem; margin-top: 0.2rem; }
+    .module-list li { margin-bottom: 0.22rem; color: var(--text-soft); }
+
+    .practice {
+      margin-top: 0.8rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed #e5e7eb;
+    }
+
+    .ad-slot {
+      margin-top: 1rem;
+      border-radius: 10px;
+      border: 1px dashed #cbd5f5;
+      padding: 0.7rem;
+      font-size: 0.8rem;
+      text-align: center;
+      background: #f8fafc;
+      color: var(--text-soft);
+    }
+
+    .buttons-row {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .btn {
+      border-radius: 999px;
+      padding: 0.6rem 1.1rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #f9fafb;
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35);
+    }
+    .btn-primary:hover { opacity: 0.95; transform: translateY(-1px); }
+    .btn-ghost {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      color: var(--text-main);
+    }
+    .btn-ghost:hover { background: #e5e7eb; }
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.2rem 0 1.6rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      background: #f9fafb;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.4rem;
+    }
+
+    @media (max-width: 720px) {
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <strong>SheetSkills Academy</strong>
+        <div class="logo-sub">Excel · Data · Dashboards</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="level3.html">Level 3</a></li>
+          <li><a href="level4.html">Level 4</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <span class="badge-level">Level 4 · Dashboards</span>
+      <h1 class="page-title">Reports for Managers</h1>
+      <p class="muted">
+        This level is for people who prepare reports for managers and want to show clear dashboards
+        with pivots, charts and key numbers.
+      </p>
+
+      <div class="card">
+        <strong>Who is this course for?</strong>
+        <ul style="margin-top:0.3rem; padding-left:1.1rem;" class="muted">
+          <li>Team leaders and MIS/reporting staff</li>
+          <li>Anyone presenting numbers in review meetings</li>
+          <li>People who want clean charts and simple dashboards</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <strong>Choose your learning path</strong>
+        <p class="path-note">
+          All paths include Pivot Tables and charts. Longer paths help you design a full dashboard.
+        </p>
+
+        <div class="path-tabs">
+          <button class="path-tab active" data-path="quick">Quick Path <span>3 modules</span></button>
+          <button class="path-tab" data-path="standard">Standard Path <span>5 modules</span></button>
+          <button class="path-tab" data-path="full">Full Path <span>7 modules</span></button>
+        </div>
+
+        <!-- QUICK -->
+        <div class="path-panel active" data-panel="quick">
+          <div class="module-list">
+            <h3>Quick Path – 3 modules</h3>
+            <ul>
+              <li><strong>Module 1:</strong> Pivot Table basics: rows, columns, values.</li>
+              <li><strong>Module 2:</strong> Simple charts from Pivot Tables.</li>
+              <li><strong>Module 3:</strong> One-page summary sheet with key numbers.</li>
+            </ul>
+          </div>
+          <div class="practice">
+            <strong>Practice task:</strong>
+            <p class="muted">
+              From a large sales list, build a Pivot Table showing total sales by region and create
+              one column chart and one pie chart from it.
+            </p>
+          </div>
+        </div>
+
+        <!-- STANDARD -->
+        <div class="path-panel" data-panel="standard">
+          <div class="module-list">
+            <h3>Standard Path – 5 modules</h3>
+            <ul>
+              <li><strong>Module 1:</strong> Pivot Table grouping (by month, region, category).</li>
+              <li><strong>Module 2:</strong> Slicers and basic filters for quick views.</li>
+              <li><strong>Module 3:</strong> Chart clean-up: titles, labels, colours for clarity.</li>
+              <li><strong>Module 4:</strong> Simple KPI cards using formulas (e.g. total, average, best region).</li>
+              <li><strong>Module 5:</strong> One dashboard sheet with 2–3 charts and KPIs.</li>
+            </ul>
+          </div>
+          <div class="practice">
+            <strong>Practice task:</strong>
+            <p class="muted">
+              Using sample data (sales or HR), build a dashboard with 2 charts, 3 KPI numbers
+              (e.g. total, average, best), and slicers for month/region.
+            </p>
+          </div>
+        </div>
+
+        <!-- FULL -->
+        <div class="path-panel" data-panel="full">
+          <div class="module-list">
+            <h3>Full Path – 7 modules</h3>
+            <ul>
+              <li><strong>Module 1:</strong> Advanced Pivot tweaks (show as %, top 10, running total).</li>
+              <li><strong>Module 2:</strong> Slicers and timelines for interactive dashboards.</li>
+              <li><strong>Module 3:</strong> Clean chart design for management (do’s and don’ts).</li>
+              <li><strong>Module 4:</strong> Layout planning: what to show on top/middle/bottom of dashboard.</li>
+              <li><strong>Module 5:</strong> Creating simple “traffic light” indicators using formatting.</li>
+              <li><strong>Module 6:</strong> Linking multiple Pivot Tables to the same slicers.</li>
+              <li><strong>Module 7:</strong> Mini project: full dashboard for monthly review meeting.</li>
+            </ul>
+          </div>
+          <div class="practice">
+            <strong>Practice task:</strong>
+            <p class="muted">
+              Build a dashboard for a monthly review: one sheet with charts, KPIs, and filters,
+              ready to be shown directly in a meeting.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-slot">
+        Ad space for Level 4 page (AdSense).
+        <!-- TODO: Paste your AdSense code here -->
+      </div>
+
+      <div class="buttons-row">
+        <a href="level3.html" class="btn btn-ghost">← Back to Level 3</a>
+        <a href="level5.html" class="btn btn-primary">Go to Level 5 – Power User Path →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> SheetSkills Academy. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="level3.html">Level 3</a>
+        <a href="level4.html">Level 4</a>
+        <a href="level5.html">Level 5</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const tabs = document.querySelectorAll(".path-tab");
+    const panels = document.querySelectorAll(".path-panel");
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const path = tab.dataset.path;
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        panels.forEach(p => p.classList.toggle("active", p.dataset.panel === path));
+      });
+    });
+  </script>
+</body>
+</html>

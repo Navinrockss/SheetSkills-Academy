@@ -1,125 +1,211 @@
-<!-- Google AdSense (REQUIRED) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9031814159281249"
-     crossorigin="anonymous"></script>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <title>SheetSkills Academy – Excel & Dashboard Training</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Simple Excel and data analytics learning for office work, dashboards, MIS, and job seekers. Take a quick level check and choose the right Excel course."
-  />
+  <meta name="description" content="Simple Excel and data analytics learning for office work, dashboards, MIS, and job seekers. Take a quick level check and choose the right Excel course." />
 
-  <!-- Google AdSense Script (must be inside head) -->
+  <!-- Google AdSense (single copy, required inside head) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9031814159281249"
-       crossorigin="anonymous"></script>
+     crossorigin="anonymous"></script>
 
   <style>
-    /* (YOUR COMPLETE CSS REMAINS SAME — no change) */
+    /* (snipped for brevity in message) keep your existing styles here - copy from your current stylesheet */
+    /* Use the same CSS you had—this file below should include your full CSS as before */
+    :root{--bg:#ffffff;--bg-soft:#f8fafc;--card-bg:#ffffff;--card-border:#e5e7eb;--text-main:#111827;--text-soft:#6b7280;--accent:#22c55e;--accent-soft:rgba(34,197,94,0.08);--danger:#ef4444;--shadow-soft:rgba(15,23,42,0.04);--shadow-strong:rgba(15,23,42,0.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text-main);line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    header{background:#ffffffee;border-bottom:1px solid #e5e7eb;backdrop-filter:blur(12px);position:sticky;top:0;z-index:50;padding:0.7rem 1rem}
+    .container{max-width:1000px;margin:0 auto;padding:0 1rem}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    nav ul{list-style:none;display:flex;gap:0.8rem;font-size:0.9rem}
+    nav a{padding:0.35rem 0.8rem;border-radius:999px;color:#0f172a;transition:background .15s,color .15s}
+    nav a:hover{background:#f1f5f9}
+    .logo{display:flex;align-items:center;gap:0.6rem}
+    .logo-sub{font-size:.75rem;color:var(--text-soft)}
+    .hero{padding:2rem 0 1.5rem;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:1.5rem;align-items:center}
+    .hero h1{font-size:clamp(2rem,3.8vw,2.4rem);margin-bottom:.6rem}
+    .hero p{font-size:.98rem;color:var(--text-soft)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+    .btn{border-radius:999px;padding:.65rem 1.2rem;border:none;cursor:pointer;font-size:.9rem;font-weight:600;display:inline-flex;align-items:center;gap:.3rem}
+    .btn-primary{background:var(--accent);color:#f9fafb;box-shadow:0 6px 18px rgba(34,197,94,.4)}
+    .btn-ghost{background:#f8fafc;border:1px solid #e5e7eb;color:var(--text-main)}
+    .hero-note{margin-top:.6rem;font-size:.82rem;color:var(--text-soft)}
+    .hero-img{background:#ffffff;border-radius:14px;padding:1rem;border:1px solid #e5e7eb;box-shadow:0 10px 30px var(--shadow-soft)}
+    section{padding:1.4rem 0}
+    .section-title{font-size:1.25rem;margin-bottom:.25rem}
+    .section-subtitle{font-size:.95rem;color:var(--text-soft);margin-bottom:.9rem}
+    .muted{color:var(--text-soft);font-size:.9rem}
+    .three-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem}
+    .card{background:var(--card-bg);border-radius:12px;border:1px solid var(--card-border);padding:.9rem;box-shadow:0 5px 18px var(--shadow-soft);font-size:.9rem}
+    .ad-slot{margin-top:1rem;border-radius:12px;border:1px dashed #cbd5f5;padding:.8rem;font-size:.8rem;color:var(--text-soft);background:#f8fafc;text-align:center;box-shadow:0 4px 14px var(--shadow-soft)}
+    .course-grid{margin-top:.7rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;font-size:.88rem}
+    .course-card{position:relative;background:#ffffff;border-radius:12px;border:1px solid #e5e7eb;padding:.8rem;box-shadow:0 6px 18px var(--shadow-soft)}
+    .course-level-label{font-size:.75rem;padding:.1rem .55rem;border-radius:999px;background:#eff6ff;color:#1d4ed8;display:inline-block;margin-bottom:.3rem}
+    .assessment{background:#ffffff;border-radius:14px;border:1px solid #e5e7eb;padding:1rem;box-shadow:0 6px 22px var(--shadow-strong);font-size:.9rem}
+    .question{margin-top:.8rem;padding:.75rem;background:var(--bg-soft);border-radius:10px;border:1px solid #e5e7eb}
+    .question-options label{display:block;margin:.15rem 0;font-size:.86rem;color:var(--text-soft);cursor:pointer}
+    .result-box{margin-top:.7rem;padding:.75rem;border-radius:10px;font-size:.88rem;display:none}
+    .result-box.success{background:#ecfdf3;color:#166534;border:1px solid #22c55e}
+    .result-box.warning{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca}
+    footer{border-top:1px solid #e5e7eb;padding:1.4rem 0 1.8rem;font-size:.8rem;color:var(--text-soft);margin-top:1.2rem;background:#f9fafb}
+    @media (max-width:800px){.hero{grid-template-columns:minmax(0,1fr)}nav ul{display:none}.three-cols{grid-template-columns:minmax(0,1fr)}.course-grid{grid-template-columns:minmax(0,1fr)}}
   </style>
 </head>
-
 <body>
   <header>
-    <!-- (No change) -->
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-icon-wrap" aria-hidden="true">
+          <!-- SVG Logo -->
+          <svg viewBox="0 0 64 64" width="40" height="40" aria-hidden="true"><rect x="4" y="8" width="56" height="48" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><rect x="10" y="14" width="44" height="10" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/><circle cx="18" cy="19" r="2.2" fill="#22c55e"/><circle cx="26" cy="19" r="2.2" fill="#facc15"/><circle cx="34" cy="19" r="2.2" fill="#ef4444"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:600;">SheetSkills Academy</div>
+          <div class="logo-sub">Excel · Data · Dashboards in simple language</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#assessment">Assessment</a></li>
+          <li><a href="#courses" id="coursesNav">Courses</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main id="top">
     <div class="container">
-
-      <!-- HERO (same) -->
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <h1>Simple Excel learning for real office work.</h1>
+          <p>Learn Excel from basics to dashboards in clear, easy English. Short lessons, real examples. Perfect for office staff, MIS roles and job seekers.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="scrollToSection('assessment')">Start level check →</button>
+            <button class="btn btn-ghost" onclick="scrollToSection('courses')">View course levels</button>
+          </div>
+          <p class="hero-note">No heavy theory. Focus on real tasks: sales reports, HR data, payments, targets, dashboards.</p>
+        </div>
+        <div class="hero-img" aria-hidden="true">
+          <!-- SVG illustration kept -->
+          <svg viewBox="0 0 260 160" width="100%" height="auto" aria-hidden="true"><rect x="4" y="6" width="252" height="148" rx="14" fill="#ffffff" stroke="#d1d5db" stroke-width="2"/><rect x="14" y="16" width="232" height="20" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/><circle cx="26" cy="26" r="4" fill="#22c55e"/><circle cx="40" cy="26" r="4" fill="#facc15"/><circle cx="54" cy="26" r="4" fill="#ef4444"/><rect x="18" y="48" width="100" height="80" rx="8" fill="#ffffff" stroke="#e2e8f0"/></svg>
+        </div>
+      </section>
 
       <!-- WHY -->
       <section>
         <h2 class="section-title">Why SheetSkills Academy?</h2>
-        <p class="section-subtitle">
-          Built for working people and job seekers who want clear, simple and practical Excel learning.
-        </p>
+        <p class="section-subtitle">Built for working people and job seekers who want clear, simple and practical Excel learning.</p>
 
         <div class="three-cols">
-          <div class="card">
-            <h3>Simple English</h3>
-            <p class="muted">
-              We use easy words and step-by-step actions. Good for beginners and people not confident in English.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Real-life files</h3>
-            <p class="muted">
-              Learn using sales, HR, accounts and MIS-style data – the type of work done in actual jobs.
-            </p>
-          </div>
-          <div class="card">
-            <h3>No boring classes</h3>
-            <p class="muted">
-              Short lessons with tasks to complete. You keep doing something, not just watching long videos.
-            </p>
-          </div>
+          <div class="card"><h3>Simple English</h3><p class="muted">We use easy words and step-by-step actions. Good for beginners and people not confident in English.</p></div>
+          <div class="card"><h3>Real-life files</h3><p class="muted">Learn using sales, HR, accounts and MIS-style data – the type of work done in actual jobs.</p></div>
+          <div class="card"><h3>No boring classes</h3><p class="muted">Short lessons with tasks to complete. You keep doing something, not just watching long videos.</p></div>
         </div>
 
-        <!-- ⭐ GOOGLE ADSENSE AD SLOT INSERTED HERE -->
-        <div class="ad-slot">
-          <!-- HOME PAGE AD -->
+        <!-- AdSense slot — replace data-ad-slot value with your real slot id -->
+        <div class="ad-slot" aria-label="Homepage ad">
           <ins class="adsbygoogle"
-              style="display:block"
-              data-ad-client="ca-pub-9031814159281249"
-              data-ad-slot="1234567890"
-              data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
-          <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+               style="display:block"
+               data-ad-client="ca-pub-9031814159281249"
+               data-ad-slot="REPLACE_WITH_SLOT_ID"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
-
       </section>
 
-      <!-- SEARCH (same) -->
+      <!-- SEARCH -->
+      <section>
+        <h2 class="section-title">Search any topic</h2>
+        <p class="section-subtitle">Type a word and we'll filter matching courses and FAQs.</p>
+        <div class="search-bar">
+          <input id="searchInput" placeholder="Example: VLOOKUP, dashboard, pivot, Power Query, attendance" oninput="handleSearch(event)" />
+          <span class="muted" id="searchHint">Showing all courses and FAQ.</span>
+        </div>
+      </section>
 
-      <!-- ASSESSMENT (same) -->
+      <!-- ASSESSMENT -->
+      <section id="assessment">
+        <h2 class="section-title">Excel level check – 10 quick questions</h2>
+        <p class="section-subtitle">Mix of how-you-would-do-this and small visuals. Answer as you would in real work.</p>
+        <div class="assessment">
+          <!-- assessment form (use same questions you had) -->
+          <form id="assessmentForm">
+            <!-- (questions omitted here for brevity; use your original question blocks) -->
+            <!-- ... -->
+            <button type="button" class="btn btn-primary" style="margin-top:.5rem" onclick="calculateAssessment()">Show my level & unlock course →</button>
+            <div id="assessmentResult" class="result-box"></div>
+          </form>
+        </div>
+      </section>
 
       <!-- COURSES -->
       <section id="courses">
         <h2 class="section-title">Course levels – from basics to dashboards</h2>
-        <p class="section-subtitle">
-          After you complete the level check, we unlock all levels and highlight one as recommended.
-        </p>
+        <p class="section-subtitle">After you complete the level check, we unlock all levels and highlight one as recommended.</p>
+        <p class="locked-note" id="coursesLockText">Courses are locked now. Please complete the assessment above to unlock.</p>
 
-        <p class="locked-note" id="coursesLockText">
-          Courses are locked now. Please complete the assessment above to unlock.
-        </p>
-
-        <!-- (All course cards same) -->
-
-        <!-- ⭐ SECOND ADSENSE AD SLOT -->
-        <div class="ad-slot">
-          <!-- COURSE PAGE AD -->
-          <ins class="adsbygoogle"
-              style="display:block"
-              data-ad-client="ca-pub-9031814159281249"
-              data-ad-slot="9876543210"
-              data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
-          <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+        <div class="course-grid">
+          <!-- course cards (use your same markup) -->
+          <!-- example card -->
+          <article class="course-card course-locked" data-level="1" data-topics="basics">
+            <div class="course-tag">Level 1</div>
+            <span class="course-level-label">Excel basics</span>
+            <h3>Start from Zero</h3>
+            <p class="muted">For complete beginners or people scared of Excel.</p>
+            <ul><li>Open, save, move around in Excel</li><li>First formulas: SUM, AVERAGE</li></ul>
+            <button class="btn btn-primary hidden" data-course-btn="1">Go to Level 1</button>
+          </article>
+          <!-- repeat for other levels -->
         </div>
 
+        <!-- Course area AdSense (replace slot id) -->
+        <div class="ad-slot" aria-label="Course area ad">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-9031814159281249"
+               data-ad-slot="REPLACE_WITH_SLOT_ID"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
       </section>
 
-      <!-- FAQ (same) -->
-
+      <!-- FAQ -->
+      <section id="faq">
+        <h2 class="section-title">Common questions</h2>
+        <p class="section-subtitle">Simple answers to common doubts.</p>
+        <!-- FAQ content (same) -->
+      </section>
     </div>
   </main>
 
   <footer>
-    <!-- (same) -->
+    <div class="container">
+      <div>© <span id="year"></span> SheetSkills Academy. All rights reserved.</div>
+      <div class="footer-links"><a href="#top">Back to top</a> <a href="#assessment">Take assessment</a> <a href="#courses">View courses</a></div>
+      <div style="margin-top:.5rem">“Microsoft Excel” is a trademark of Microsoft Corporation. SheetSkills Academy is an independent learning website.</div>
+    </div>
   </footer>
 
   <script>
-    /* (YOUR JS REMAINS SAME — no change) */
+    // scroll helper
+    function scrollToSection(id){const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:"smooth",block:"start"})}
+    // search handler (same as yours)
+    function handleSearch(event){const term=event.target.value.trim().toLowerCase();const hint=document.getElementById("searchHint");const courseCards=document.querySelectorAll(".course-card");const faqItems=document.querySelectorAll(".faq-item"); if(!term){hint.textContent="Showing all courses and FAQ.";courseCards.forEach(c=>c.style.display="");faqItems.forEach(f=>f.style.display="");return} hint.textContent='Filtering by: "'+term+'"'; courseCards.forEach(card=>{const topics=(card.dataset.topics||"").toLowerCase();const text=card.textContent.toLowerCase();card.style.display=(topics.includes(term)||text.includes(term))?"":"none"}); faqItems.forEach(item=>{const topics=(item.dataset.topics||"").toLowerCase();const text=item.textContent.toLowerCase();item.style.display=(topics.includes(term)||text.includes(term))?"":"none"})}
+    // keep year
+    document.getElementById("year").textContent=new Date().getFullYear();
+
+    // assessment & unlocking functions (paste your calculateAssessment & unlockCourses here)
+    function calculateAssessment(){ /* paste your existing function code here (unchanged) */ }
+    function unlockCourses(level){ /* paste your existing unlockCourses function here (unchanged) */ }
   </script>
 </body>
 </html>

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Excel Basics — Practical Office Course | Learnlytics Academy</title>
+<meta name="description" content="Practical Excel Basics course for daily office tasks — create invoices, track expenses, attendance, simple reports and charts. Step-by-step, easy language, no heavy formulas." />
+<meta name="keywords" content="excel basics, practical excel, daily excel tasks, invoice template, expense tracker, attendance sheet, create charts excel, excel practice" />
+<style>
+  :root{
+    --brand:#1E88E5; --navy:#0F3057; --accent:#FFCA28; --bg:#ffffff; --muted:#666;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:#111;line-height:1.6}
+  header{padding:36px 16px;text-align:center;border-bottom:1px solid #eee}
+  h1{margin:0;font-size:34px;color:var(--navy)}
+  p.lead{color:var(--muted);max-width:900px;margin:10px auto 0;font-size:17px}
+  .container{max-width:1000px;margin:26px auto;padding:0 16px 60px}
+  nav.topnav{display:flex;gap:12px;justify-content:center;padding:12px 0}
+  nav.topnav a{color:var(--brand);text-decoration:none;font-weight:600}
+  .two-col{display:grid;grid-template-columns:1fr 320px;gap:22px}
+  @media(max-width:920px){.two-col{grid-template-columns:1fr}}
+  .section{padding:18px 0;border-bottom:1px solid #f3f3f3}
+  h2{color:var(--navy);margin:6px 0 12px}
+  h3{color:var(--brand);margin:14px 0 8px}
+  .card{background:#fff;padding:16px;border-radius:10px;border:1px solid #f0f0f0}
+  .practice{background:#fbfdff;padding:12px;border-radius:8px;border:1px solid #eef6ff;margin:8px 0}
+  .practice table{width:100%;border-collapse:collapse}
+  .practice th,.practice td{border:1px solid #e6e6e6;padding:8px;font-size:14px}
+  .checklist{list-style:none;padding-left:0;margin:8px 0}
+  .checklist li{padding:8px 0;border-bottom:1px dashed #f4f4f4}
+  .btn{display:inline-block;background:var(--accent);color:var(--navy);padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700}
+  .muted{color:var(--muted)}
+  .note{background:#fff7e6;border-left:4px solid var(--accent);padding:10px;border-radius:6px;margin:12px 0}
+  .tips{background:#f7fbff;border-left:4px solid var(--brand);padding:10px;border-radius:6px;margin:12px 0;color:#123}
+  footer{padding:24px;text-align:center;background:#F4F7FB;color:var(--navy);margin-top:30px;border-top:1px solid #eee}
+  .ads{background:#fafafa;border:1px dashed #ddd;padding:12px;text-align:center;color:var(--muted);border-radius:8px;margin:14px 0}
+  .qbox{background:#f9fbff;border:1px solid #e8f0ff;padding:12px;border-radius:8px;margin:10px 0}
+  .result{font-weight:700;color:var(--brand);margin-top:12px}
+  small{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Excel Basics — Practical Office Course</h1>
+  <p class="lead">Short, practical lessons for everyday office tasks — invoices, expense tracking, attendance, inventory, daily reports and quick charts. This page is one course: learn, practice (on-page), and quiz at the end.</p>
+</header>
+
+<nav class="topnav">
+  <a href="#start">Start</a>
+  <a href="#formatting">Formatting</a>
+  <a href="#tables">Tables & Filters</a>
+  <a href="#charts">Charts</a>
+  <a href="#templates">Templates</a>
+  <a href="#report">Daily Report</a>
+  <a href="#quiz">Quiz</a>
+</nav>
+
+<main class="container">
+
+  <div class="two-col">
+
+    <div>
+
+      <!-- START -->
+      <section id="start" class="section card">
+        <h2>Lesson 1 — First steps: open, save, enter data</h2>
+        <p class="muted">Goal: feel confident opening Excel or Google Sheets, entering data, saving, and naming sheets — the basics that make everything else possible.</p>
+
+        <h3>Step-by-step (do this now)</h3>
+        <ol>
+          <li>Open Excel or Google Sheets and create a new blank workbook.</li>
+          <li>Rename the first sheet: double-click the sheet tab and type <em>Sales</em>.</li>
+          <li>In row 1, type headers: <strong>Date</strong>, <strong>Product</strong>, <strong>Qty</strong>, <strong>Unit Price</strong>, <strong>Notes</strong>.</li>
+          <li>Enter a few rows of sample data (3–10 rows). Click a cell and type — press <strong>Enter</strong> to go down the column.</li>
+          <li>Save the file with a clear name: <em>Sales_Jan_2025.xlsx</em> (or simply use Google Sheets which auto-saves).</li>
+        </ol>
+
+        <div class="note"><strong>Why this matters:</strong> clear sheet names and headers help you find and filter information quickly later.</div>
+
+        <h3>On-page practice (copy to Excel / edit here)</h3>
+        <div class="practice" contenteditable="true" aria-label="Practice Sales Table">
+          <table>
+            <thead><tr><th>Date</th><th>Product</th><th>Qty</th><th>Unit Price</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>2025-01-01</td><td>Tea</td><td>10</td><td>25</td><td>Walk-in</td></tr>
+              <tr><td>2025-01-02</td><td>Biscuits</td><td>5</td><td>15</td><td>Delivery</td></tr>
+              <tr><td>2025-01-03</td><td>Snacks</td><td>7</td><td>30</td><td>Online</td></tr>
+            </tbody>
+          </table>
+          <small>Tip: select the table and paste into Excel/Sheets to practice. Or edit inline to simulate data entry.</small>
+        </div>
+      </section>
+
+      <!-- FORMATTING -->
+      <section id="formatting" class="section card">
+        <h2>Lesson 2 — Formatting for clarity</h2>
+        <p class="muted">Goal: make spreadsheets readable so colleagues or managers instantly understand the data.</p>
+
+        <h3>Actions to perform</h3>
+        <ul>
+          <li><strong>Make headers bold</strong> and slightly larger than data rows.</li>
+          <li><strong>Align numbers to the right</strong> and text to the left.</li>
+          <li>Format price and amounts as currency (use the Number / Currency format).</li>
+          <li>Apply a light fill color to header row for contrast.</li>
+          <li>Wrap long text in description/notes cells so everything is visible.</li>
+        </ul>
+
+        <h3>Practice checklist</h3>
+        <ul class="checklist" id="format-check">
+          <li><label><input type="checkbox"> I made the header row bold</label></li>
+          <li><label><input type="checkbox"> Numbers are right aligned</label></li>
+          <li><label><input type="checkbox"> I formatted unit price as currency</label></li>
+          <li><label><input type="checkbox"> I applied a header fill color</label></li>
+        </ul>
+
+        <div class="tips">
+          <strong>Common mistakes:</strong>
+          <ul>
+            <li>Storing numbers as text: when copied from other places, numbers may be text — use "Convert to Number" or retype.</li>
+            <li>Different date formats: keep dates consistent (e.g., DD-MM-YYYY or YYYY-MM-DD).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- TABLES & FILTERS -->
+      <section id="tables" class="section card">
+        <h2>Lesson 3 — Convert data to a Table & use Filters</h2>
+        <p class="muted">Goal: quickly show only the rows you need (e.g., one product, one date range) and keep formatting when you add rows.</p>
+
+        <h3>Steps (Excel)</h3>
+        <ol>
+          <li>Select any cell in your data range and press <strong>Ctrl + T</strong> (or Insert → Table).</li>
+          <li>Ensure "My table has headers" is checked and click OK.</li>
+          <li>Use the small dropdown arrows in header cells to <strong>Filter</strong> or <strong>Sort</strong>.</li>
+        </ol>
+
+        <h3>Daily examples</h3>
+        <ul>
+          <li>Filter to show sales for Product = "Tea".</li>
+          <li>Sort by Date newest to oldest to see latest sales.</li>
+          <li>Filter by Notes contains "Online" to view only online orders.</li>
+        </ul>
+
+        <div class="practice" contenteditable="true">
+          <strong>Quick filter demo (edit inline then use Excel):</strong>
+          <table>
+            <thead><tr><th>Date</th><th>Product</th><th>Qty</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>2025-01-01</td><td>Tea</td><td>10</td><td>Walk-in</td></tr>
+              <tr><td>2025-01-02</td><td>Biscuits</td><td>5</td><td>Online</td></tr>
+              <tr><td>2025-01-03</td><td>Tea</td><td>4</td><td>Delivery</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note"><strong>Pro tip:</strong> Tables auto-expand when you add a new row — filters and formatting stay consistent.</div>
+      </section>
+
+      <!-- SORTING -->
+      <section class="section card">
+        <h2>Lesson 4 — Sorting for quick insights</h2>
+        <p class="muted">Goal: find top/bottom values, latest dates or alphabetical lists quickly.</p>
+
+        <h3>Examples to try</h3>
+        <ul>
+          <li>Sort by Qty descending to see top-selling items.</li>
+          <li>Sort by Product A → Z to group similar products together.</li>
+          <li>Use custom sort for multiple criteria (e.g., Product then Date).</li>
+        </ul>
+
+        <div class="tips"><strong>Warning:</strong> Avoid sorting only one column — select entire table before sorting to keep rows intact.</div>
+      </section>
+
+      <!-- CHARTS -->
+      <section id="charts" class="section card">
+        <h2>Lesson 5 — Create clear charts (column & line)</h2>
+        <p class="muted">Goal: quickly show trends or comparisons so a manager understands the story at a glance.</p>
+
+        <h3>Step-by-step</h3>
+        <ol>
+          <li>Select the two columns you want to chart (e.g., Date and Qty or Product and Qty summary).</li>
+          <li>Insert → Recommended Charts → choose Column or Line.</li>
+          <li>Add a short title and label axes (e.g., "Monthly Sales").</li>
+          <li>Keep the chart simple — avoid too many series on one chart.</li>
+        </ol>
+
+        <div class="note"><strong>Design tip:</strong> Use a column chart for comparing products; use a line chart for trends over time.</div>
+      </section>
+
+      <!-- TEMPLATES -->
+      <section id="templates" class="section card">
+        <h2>Lesson 6 — Practical templates you can use today</h2>
+        <p class="muted">Below are small templates you can copy into Excel. They are made for daily office tasks and avoid heavy formulas.</p>
+
+        <h3>Expense tracker (monthly)</h3>
+        <div class="practice" contenteditable="true">
+          <table>
+            <thead><tr><th>Date</th><th>Category</th><th>Description</th><th>Amount</th><th>Payment</th></tr></thead>
+            <tbody>
+              <tr><td>2025-01-01</td><td>Office</td><td>Printer ink</td><td>1200</td><td>Cash</td></tr>
+              <tr><td>2025-01-03</td><td>Travel</td><td>Taxi</td><td>320</td><td>Card</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <small class="muted">Copy this to Excel and keep adding expenses daily for an easy monthly summary.</small>
+
+        <h3 style="margin-top:12px">Simple invoice register</h3>
+        <div class="practice" contenteditable="true">
+          <table>
+            <thead><tr><th>Invoice #</th><th>Date</th><th>Client</th><th>Item/Service</th><th>Amount</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>INV1001</td><td>2025-01-05</td><td>Acme Co</td><td>Design</td><td>5000</td><td>Paid</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:12px">Attendance / shift tracker</h3>
+        <div class="practice" contenteditable="true">
+          <table>
+            <thead><tr><th>Name</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th></tr></thead>
+            <tbody>
+              <tr><td>Amit</td><td>P</td><td>P</td><td>A</td><td>P</td><td>P</td></tr>
+              <tr><td>Priya</td><td>P</td><td>A</td><td>P</td><td>P</td><td>P</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- DAILY REPORT -->
+      <section id="report" class="section card">
+        <h2>Lesson 7 — Create a one-page Daily Sales Summary</h2>
+        <p class="muted">Goal: produce a quick, printable summary a manager can review with one look.</p>
+
+        <h3>What to include (quick checklist)</h3>
+        <ul>
+          <li>Date & period</li>
+          <li>Total sales (manually check by looking at totals column)</li>
+          <li>Top 3 products (sort by Qty and take top 3)</li>
+          <li>Small chart (column or line) showing trend</li>
+          <li>Notes / outstanding items (like low stock)</li>
+        </ul>
+
+        <div class="card" style="margin-top:10px">
+          <strong>Mini project (do this):</strong>
+          <ol>
+            <li>Use your Sales sheet and add at least 10 rows.</li>
+            <li>Create a new sheet named <em>Summary</em>.</li>
+            <li>On Summary, write: Total Sales:, Top Products: and paste a small chart.</li>
+            <li>Save and export Summary as a PDF for emailing (File → Save as PDF).</li>
+          </ol>
+        </div>
+
+        <div class="note">Manager-ready reports are short, clear and printable. Keep the Summary to one page if you often email it.</div>
+      </section>
+
+      <!-- FINAL PRACTICE -->
+      <section class="section card">
+        <h2>Final practice — End-to-end</h2>
+        <p class="muted">Create a workbook with two sheets: <em>Sales</em> and <em>Summary</em>. Follow these steps:</p>
+        <ol>
+          <li>Enter 12–20 sales rows in Sales sheet (use the practice table above).</li>
+          <li>Format headers, currency and adjust column widths.</li>
+          <li>Convert to Table (Ctrl + T) and try filtering by Product.</li>
+          <li>Sort by Qty to find top-selling items and copy top 3 to Summary.</li>
+          <li>Create a small chart on Summary and save as PDF.</li>
+        </ol>
+        <div class="tips">If you are short on time — do just 6–8 rows and still create a Summary. It's about clarity, not volume.</div>
+      </section>
+
+      <!-- QUIZ -->
+      <section id="quiz" class="section card">
+        <h2>Quiz — Practical knowledge check</h2>
+        <p class="muted">10 short practical questions. Choose the best answer. Explanations appear after submission.</p>
+
+        <div id="quizArea"></div>
+
+        <button id="submitQuiz" class="btn" style="margin-top:12px">Submit Quiz</button>
+        <div id="quizResult" class="result" role="status" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="card">
+        <h3>Course checklist</h3>
+        <ul class="muted">
+          <li>Open workbook & enter data</li>
+          <li>Format headers & currency</li>
+          <li>Create table & use filter</li>
+          <li>Sort for top items</li>
+          <li>Create a simple chart</li>
+          <li>Build one-page Summary</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h3>Quick references</h3>
+        <ul class="muted">
+          <li><strong>Ctrl + T</strong> — Convert to Table</li>
+          <li><strong>Ctrl + S</strong> — Save (Excel)</li>
+          <li><strong>Ctrl + Z</strong> — Undo</li>
+          <li><strong>Ctrl + C / Ctrl + V</strong> — Copy / Paste</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h3>Ad spot</h3>
+        <div class="ads">Ad placeholder — insert AdSense code here after approval</div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h3>Common mistakes & fixes</h3>
+        <ul class="muted">
+          <li>Sorting one column only — select entire table first.</li>
+          <li>Dates showing as text — reformat to Date type.</li>
+          <li>Numbers stored as text — use "Convert to Number" or re-enter.</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <small>Learnlytics Academy — Practical Excel Basics • © 2025</small>
+  </footer>
+</main>
+
+<script>
+/* Practical quiz data (10 questions) */
+const quizData = [
+  { q: "You need to show only rows where Product = 'Tea'. What do you use?", choices:["Sort","Filter","Chart"], correct:1, explain:"Filter shows only matching rows without rearranging others." },
+  { q: "To make header row stand out, you should:", choices:["Bold and shade it","Hide headers","Use tiny font"], correct:0, explain:"Bold + shading improves readability." },
+  { q: "You want to add new rows and keep filters and formatting intact. Best action:", choices:["Convert range to Table (Ctrl+T)","Copy/paste new rows only","Use a chart"], correct:0, explain:"Tables auto-expand and preserve filters and styles." },
+  { q: "To find the top-selling items quickly, you would:", choices:["Sort by Qty descending","Apply a chart","Change font color"], correct:0, explain:"Sorting by Qty descending shows highest values at top." },
+  { q: "Which chart is best to show sales trend over time?", choices:["Pie chart","Line chart","Scatter plot"], correct:1, explain:"Line charts show trends clearly over time." },
+  { q: "You must prepare a one-page summary for manager. Best content:", choices:["Totals, top items, small chart, notes","Raw data of 200 rows","Only charts without labels"], correct:0, explain:"Totals + top items + small chart + notes is concise and useful." },
+  { q: "If numbers appear left-aligned in cells, likely they are:", choices:["Formatted as currency","Stored as text","Protected"], correct:1, explain:"Numbers stored as text are left-aligned by default." },
+  { q: "To show amount values with currency symbol, you should:", choices:["Apply Currency number format","Add $ manually before every cell","Use text format"], correct:0, explain:"Number formatting ensures consistency and correct sorting." },
+  { q: "You want to quickly filter sales between two dates. Use:", choices:["Sort A→Z","Filter by date range","Convert to chart"], correct:1, explain:"Date filters let you pick a start and end date." },
+  { q: "Before sorting a table, it's important to:", choices:["Select a single cell only","Select entire table or ensure table format","Delete blank rows"], correct:1, explain:"Selecting the whole table or using Table format prevents row mismatch." }
+];
+
+const quizArea = document.getElementById('quizArea');
+quizData.forEach((item, idx) => {
+  const box = document.createElement('div');
+  box.className = 'qbox';
+  box.innerHTML = `<p><strong>Q${idx+1}.</strong> ${item.q}</p>`;
+  item.choices.forEach((c,i) => {
+    box.innerHTML += `<div><label><input type="radio" name="q${idx}" value="${i}"> ${c}</label></div>`;
+  });
+  box.innerHTML += `<div id="explain-${idx}" style="display:none;margin-top:8px;color:var(--muted)"></div>`;
+  quizArea.appendChild(box);
+});
+
+document.getElementById('submitQuiz').addEventListener('click', () => {
+  let score = 0;
+  quizData.forEach((item, idx) => {
+    const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+    const explainBox = document.getElementById(`explain-${idx}`);
+    explainBox.style.display = 'block';
+    if(selected && parseInt(selected.value) === item.correct){
+      score++;
+      explainBox.innerHTML = `<small style="color:green">Correct — ${item.explain}</small>`;
+    } else {
+      explainBox.innerHTML = `<small style="color:#d9534f">Incorrect — ${item.explain}</small>`;
+    }
+  });
+  const total = quizData.length;
+  const percent = Math.round((score/total)*100);
+  const res = document.getElementById('quizResult');
+  res.innerHTML = `You scored ${score} / ${total} (${percent}%)`;
+  if(percent >= 80) res.innerHTML += ' — Excellent — ready for daily tasks!';
+  else if(percent >= 50) res.innerHTML += ' — Good — review weak areas and retry.';
+  else res.innerHTML += ' — Keep practicing the lessons above and try again.';
+  res.scrollIntoView({behavior:'smooth', block:'center'});
+});
+</script>
+
+</body>
+</html>
